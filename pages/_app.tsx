@@ -1,10 +1,16 @@
 
-import 'styles/globals.scss'
+import Navigation from 'components/navigation';
+
+import 'styles/_globals.scss'
 
 const App = ({Component, pageProps}) => {
   return (
     <div className='app-root'>
-      <Component {...pageProps} />
+      <Navigation />
+
+      <div className='app-content'>
+        <Component {...pageProps} />
+      </div>
     </div>
   );
 }

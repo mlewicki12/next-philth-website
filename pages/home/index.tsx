@@ -4,6 +4,8 @@ import Highlights from 'components/highlights';
 
 import styles from './style.module.scss';
 
+console.log(styles);
+
 const Home = () => {
   return (
     <div className={styles.homePage}>

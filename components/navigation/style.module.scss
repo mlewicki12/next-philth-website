@@ -1,0 +1,50 @@
+
+.nav {
+  z-index: 500;
+  width: 100vw;
+
+  height: 3rem;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  color: white;
+  background-color: black;
+
+  position: fixed;
+
+  > .logo {
+    color: white;
+    padding-left: 1.5rem;
+
+    font-size: 2rem;
+    font-family: 'AnzeigenGrotesk', sans;
+
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  > .links {
+    width: fit-content;
+    font-size: 0.8rem;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    > a {
+      padding: 0 1.5rem;
+      color: white;
+
+      text-decoration: underline;
+      font-family: 'RadioNewsman', sans;
+    }
+
+    > a:hover {
+      color: darken(white, 20%);
+    }
+  }
+}
