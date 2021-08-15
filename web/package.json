@@ -1,0 +1,31 @@
+{
+  "name": "philth-website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@sanity/block-content-to-react": "^3.0.0",
+    "@sanity/client": "^2.14.0",
+    "@sanity/image-url": "^0.140.22",
+    "@zeit/next-sass": "^1.0.1",
+    "groq": "^2.14.0",
+    "moment": "^2.29.1",
+    "next": "11.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-moment": "^1.1.1",
+    "react-router-dom": "^5.2.0",
+    "sass": "^1.37.5"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.18",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.0.1",
+    "typescript": "^4.3.5"
+  }
+}

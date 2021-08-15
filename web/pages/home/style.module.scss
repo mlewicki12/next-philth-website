@@ -1,0 +1,36 @@
+
+.homePage {
+  width: 100%;
+  height: fit-content;
+
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+
+  grid-gap: 1.5rem;
+
+  > .article {
+    > .title {
+      margin: 0;
+    }
+
+    > .date {
+      font-style: italic;
+      margin-top: 0;
+    }
+    
+    > .content {
+      margin-top: 0;
+    }
+
+    > .link {
+      color: black;
+    }
+
+    > .link:hover {
+      color: lighten(black, 20%);
+    }
+  }
+}

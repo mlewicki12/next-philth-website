@@ -1,0 +1,7 @@
+
+/* ripped from https://www.freecodecamp.org/news/how-to-use-sass-with-css-modules-in-next-js/ */
+@mixin desktop() {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
