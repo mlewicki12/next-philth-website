@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import * as Routes from 'constants/routes';
+import * as Routes from 'variables/routes';
 import styles from './style.module.scss';
 import RouterLink from 'components/router-link';
 

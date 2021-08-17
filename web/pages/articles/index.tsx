@@ -1,11 +1,9 @@
 
 import groq from 'groq';
-import Moment from 'react-moment';
-import Link from 'next/link';
-import client, { getImageUrl } from 'sanity';
+import client from 'sanity';
 import { useState } from 'react';
 
-import * as Routes from 'constants/routes';
+import Article from 'components/article';
 
 const Post = (props: any) => {
   const [articles, setArticles] = useState<any>(Object.keys(props).reduce((prev, next) => {
@@ -16,29 +14,25 @@ const Post = (props: any) => {
   return (
     <div>
       {articles?.map((post, index) => ( 
-        <Link href={`${Routes.ARTICLES}/${post.slug.current}`} key={post.slug.current}>
-          <span key={index}>
-            <img
-              src={getImageUrl(post.mainImage).width(200).url()}
-              alt={post.title}
-            />
-              
-            <span>
-              <h2>{post.title}</h2>
-              <Moment date={post.publishedAt} format='M/D/YYYY' />
-              <p>- {post.author}</p>
-            </span>
-          </span>
-        </Link>
+        <Article
+          slug={post.slug.current}
+          mainImage={post.mainImage}
+          title={post.title}
+          author={post.author}
+          publishedAt={post.publishedAt}
+          blurb={post.blurb}
+          index={index}
+        />
       ))}
     </div>
   );
 }
 
-const query = groq`*[_type == 'post'] | order(publishedAt) {
+const query = groq`*[_type == 'post'] | order(publishedAt desc) {
   title,
   slug,
   publishedAt,
+  blurb,
   mainImage{
     asset->{
       _id,

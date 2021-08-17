@@ -8,7 +8,7 @@ type RouterLink = {
 const RouterLink = (props: RouterLink & LinkProps) => {
   return (
     <Link {...props}>
-      <a href={props.href.toString()}>{props.children}</a>
+      <a href={props.href.toString()} style={{textDecoration: 'none'}}>{props.children}</a>
     </Link>
   );
 }
