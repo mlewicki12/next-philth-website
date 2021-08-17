@@ -8,5 +8,9 @@ module.exports = {
       destination: '/home',
       permanent: true
     }];
+  },
+  
+  images: {
+    domains: ['cdn.sanity.io']
   }
 }

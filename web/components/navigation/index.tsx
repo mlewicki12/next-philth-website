@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import * as Routes from 'constants/routes';
 import styles from './style.module.scss';
+import RouterLink from 'components/router-link';
 
 const Navigation = () => {
   return (
@@ -12,11 +13,11 @@ const Navigation = () => {
         </a>
       </Link>
       <div className={styles.links}>
-        <Link href={Routes.ABOUT}><a>About</a></Link>
-        <Link href={Routes.ARTICLES}><a>Articles</a></Link>
-        <Link href={Routes.REVIEWS}><a>Reviews</a></Link>
-        <Link href={Routes.ORDER}><a>Order Physical</a></Link>
-        <Link href={Routes.CONTACT}><a>Contact</a></Link>
+        <RouterLink href={Routes.ABOUT}>About</RouterLink>
+        <RouterLink href={Routes.ARTICLES}>Articles</RouterLink>
+        <RouterLink href={Routes.REVIEWS}>Reviews</RouterLink>
+        <RouterLink href={Routes.ORDER}>Order Physical</RouterLink>
+        <RouterLink href={Routes.CONTACT}>Contact</RouterLink>
       </div>
     </nav>
   );

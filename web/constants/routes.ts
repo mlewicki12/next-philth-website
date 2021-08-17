@@ -1,6 +1,6 @@
 
 export const HOME ='/';
-export const ABOUT = '/abouts';
+export const ABOUT = '/about';
 export const ARTICLES = '/articles';
 export const REVIEWS = '/reviews';
 export const ORDER = '/order';
