@@ -1,0 +1,31 @@
+
+.articlePage {
+  width: 100%;
+  height: fit-content;
+
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: fit-content(3rem) 1fr;
+  grid-gap: 1.5rem;
+
+  > .info {
+    > h1, > p {
+      margin: 0;
+    }
+  }
+
+  > img {
+    margin-left: auto;
+
+    max-width: 100%;
+    height: auto;
+
+    grid-column-start: 2;
+    grid-column-end: 3;
+
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+}
