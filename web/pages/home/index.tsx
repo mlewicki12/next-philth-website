@@ -17,7 +17,7 @@ const Home = () => {
         <Link href='articles'><a className={styles.link}>Read more</a></Link>
       </div>
       <iframe style={{marginTop: 'auto'}}
-        src="https://open.spotify.com/embed/playlist/62fIu2JEnJLKIfqVYWDfWT?theme=0" title='playlist' width='100%' height='380' frameBorder='0' allowTransparency={true} allow='encrypted-media'></iframe>
+        src="https://open.spotify.com/embed/playlist/62fIu2JEnJLKIfqVYWDfWT?theme=0" title='playlist' width='100%' height='380' frameBorder='0' allow='encrypted-media'></iframe>
     </div>
   );
 }

@@ -1,5 +1,7 @@
 
+import { useState } from 'react';
 import Moment from 'react-moment';
+import Image from 'next/image';
 import RouterLink from 'components/router-link';
 import client, { getImageUrl } from 'sanity';
 import BlockContent from '@sanity/block-content-to-react';
@@ -20,6 +22,8 @@ type Article = {
 const Article = ({
   slug, mainImage, title, publishedAt, author, blurb
 }: Article) => {
+  const [imageUrl, setImageUrl] = useState(getImageUrl(mainImage).height(200).url());
+
   return (
     <>
       <Head>
@@ -27,11 +31,9 @@ const Article = ({
       </Head>
 
       <div className={styles.article} key={slug}>
-        <img
-          src={getImageUrl(mainImage).height(200).url()}
-          alt={title}
-        />
-          
+        <div className={styles.image}>
+          {imageUrl && <Image src={imageUrl} alt={title} width={200} height={200} objectFit='cover' objectPosition='center center' quality={100} />}
+        </div>
         <div>
           <div>
             <RouterLink href={`/articles/${slug}`}>

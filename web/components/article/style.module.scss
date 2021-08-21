@@ -8,16 +8,17 @@
   flex-flow: row nowrap;
   align-items: flex-start;
 
-  > img {
+  > .image {
     min-width: 200px;
     max-width: 200px;
+  }
 
-    height: 200px;
-    object-fit: cover;
+  > div:not(.image) {
+    padding-left: 1rem;
   }
 
   > div {
-    padding-left: 0.5rem;
+
     height: 200px;
 
     display: flex;
