@@ -7,7 +7,6 @@ import Article from 'components/article';
 
 const Post = (props: any) => {
   const { posts } = props;
-  console.log(posts);
   const [articles, setArticles] = useState<any>(Object.keys(posts).reduce((prev, next) => {
     prev.push(posts[next]);
     return prev;
