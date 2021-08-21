@@ -59,7 +59,7 @@ export default {
     // as a block type.
     {
       type: 'object',
-      name: 'articleImage',
+      name: 'image',
       title: 'Image',
       fields: [
         {
@@ -76,12 +76,5 @@ export default {
       ],
       options: {hotspot: true},
     },
-    // for backwards compatibility, old articles have images
-    {
-      type: 'image',
-      name: 'image',
-      title: 'Image',
-      hidden: true
-    }
   ],
 }

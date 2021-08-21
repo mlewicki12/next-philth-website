@@ -15,11 +15,10 @@ type Article = {
   publishedAt: any;
   author: string;
   blurb: string;
-  index: number;
 };
 
 const Article = ({
-  slug, mainImage, title, publishedAt, author, blurb, index
+  slug, mainImage, title, publishedAt, author, blurb
 }: Article) => {
   return (
     <>
@@ -27,7 +26,7 @@ const Article = ({
         <title>{Constants.TITLE} - {Constants.ARTICLES}</title>
       </Head>
 
-      <div className={styles.article} key={index}>
+      <div className={styles.article} key={slug}>
         <img
           src={getImageUrl(mainImage).height(200).url()}
           alt={title}
@@ -37,7 +36,7 @@ const Article = ({
           <div>
             <RouterLink href={`/articles/${slug}`}>
               <h2>{title}</h2>
-              <p className={styles.author}>&nbsp;by {author}</p>
+              <p className={styles.author}>- {author}</p>
             </RouterLink>
 
             <div className={styles.blurb}>

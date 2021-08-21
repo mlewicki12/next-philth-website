@@ -1,5 +1,6 @@
 
 import groq from 'groq';
+import Image from 'next/image';
 import client, { getImageUrl, splitBlock } from 'sanity';
 import BlockContent from '@sanity/block-content-to-react';
 
@@ -26,7 +27,7 @@ const ArticlePage = (props: any) => {
 
       <div className={styles.images}>
         {imageUrl !== '' &&
-          <img src={imageUrl} alt={props.title} />}
+          <Image src={imageUrl} alt={props.title} width={900} height={900} objectFit='contain' objectPosition='center top' />}
 
         <BlockContent
           blocks={images}
