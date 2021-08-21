@@ -6,8 +6,10 @@ import { useState } from 'react';
 import Article from 'components/article';
 
 const Post = (props: any) => {
-  const [articles, setArticles] = useState<any>(Object.keys(props).reduce((prev, next) => {
-    prev.push(props[next]);
+  const { posts } = props;
+  console.log(posts);
+  const [articles, setArticles] = useState<any>(Object.keys(posts).reduce((prev, next) => {
+    prev.push(posts[next]);
     return prev;
   }, []))
 
@@ -42,9 +44,14 @@ const query = groq`*[_type == 'post'] | order(publishedAt desc) {
   'author': author->name
 }`;
 
-Post.getInitialProps = async function(context: any) {
+export async function getStaticProps() {
   const result = await client.fetch(query);
-  return result;
+
+  return {
+    props: {
+      posts: result
+    }
+  };
 }
 
 export default Post;

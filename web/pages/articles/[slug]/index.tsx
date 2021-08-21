@@ -7,15 +7,17 @@ import BlockContent from '@sanity/block-content-to-react';
 import styles from './style.module.scss';
 
 const ArticlePage = (props: any) => {
-  const imageUrl = getImageUrl(props.mainImage).url() ?? '';
-  const [texts, images] = splitBlock(props.body);
+  const { post } = props;
+
+  const imageUrl = getImageUrl(post.mainImage).url() ?? '';
+  const [texts, images] = splitBlock(post.body);
 
   return (
     <div className={styles.articlePage}>
       <div className={styles.content}>
         <div className={styles.info}>
-          <h1>{props.title}</h1>
-          <p><span style={{fontStyle: 'italic'}}>by {props.name}</span></p>
+          <h1>{post.title}</h1>
+          <p><span style={{fontStyle: 'italic'}}>by {post.name}</span></p>
         </div>
 
           <BlockContent
@@ -27,7 +29,7 @@ const ArticlePage = (props: any) => {
 
       <div className={styles.images}>
         {imageUrl !== '' &&
-          <Image src={imageUrl} alt={props.title} width={900} height={900} objectFit='contain' objectPosition='center top' />}
+          <Image src={imageUrl} alt={post.title} width={900} height={900} objectFit='contain' objectPosition='center top' />}
 
         <BlockContent
           blocks={images}
@@ -37,6 +39,27 @@ const ArticlePage = (props: any) => {
       </div>
     </div>
   );
+}
+
+const pathQuery = groq`*[_type == 'post'] {
+  slug
+}`;
+
+export async function getStaticPaths() {
+  const slugs = await client.fetch(pathQuery);
+
+  const paths = slugs.map(item => {
+    return {
+      params: {
+        slug: item.slug.current
+      }
+    }
+  });
+
+  return {
+    paths,
+    fallback: false
+  };
 }
 
 const query = groq`*[_type == 'post' && slug.current == $slug][0] {
@@ -51,11 +74,15 @@ const query = groq`*[_type == 'post' && slug.current == $slug][0] {
   'name': author->name
 }`;
 
-ArticlePage.getInitialProps = async function(context: any) {
-  const { slug = '' } = context.query;
+export async function getStaticProps({ params }) {
+  const { slug = '' } = params;
   const result = await client.fetch(query, { slug });
 
-  return result;
+  return {
+    props: {
+      post: result
+    }
+  };
 }
 
 export default ArticlePage;
