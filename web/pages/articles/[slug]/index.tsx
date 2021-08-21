@@ -1,28 +1,39 @@
 
 import groq from 'groq';
-import client, { getImageUrl } from 'sanity';
+import client, { getImageUrl, splitBlock } from 'sanity';
 import BlockContent from '@sanity/block-content-to-react';
 
 import styles from './style.module.scss';
 
 const ArticlePage = (props: any) => {
   const imageUrl = getImageUrl(props.mainImage).url() ?? '';
-  debugger;
+  const [texts, images] = splitBlock(props.body);
+
   return (
     <div className={styles.articlePage}>
-      <div className={styles.info}>
-        <h1>{props.title}</h1>
-        <p><span style={{fontStyle: 'italic'}}>by {props.name}</span></p>
-      </div>
       <div className={styles.content}>
+        <div className={styles.info}>
+          <h1>{props.title}</h1>
+          <p><span style={{fontStyle: 'italic'}}>by {props.name}</span></p>
+        </div>
+
+          <BlockContent
+            blocks={texts}
+            projectId={client.clientConfig.projectId}
+            dataset={client.clientConfig.dataset}
+          />
+      </div>
+
+      <div className={styles.images}>
+        {imageUrl !== '' &&
+          <img src={imageUrl} alt={props.title} />}
+
         <BlockContent
-          blocks={props.body}
+          blocks={images}
           projectId={client.clientConfig.projectId}
           dataset={client.clientConfig.dataset}
         />
       </div>
-      {imageUrl !== '' &&
-        <img src={imageUrl} alt={props.title} />}
     </div>
   );
 }

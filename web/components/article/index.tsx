@@ -5,7 +5,6 @@ import client, { getImageUrl } from 'sanity';
 import BlockContent from '@sanity/block-content-to-react';
 
 import Constants from 'variables';
-import * as Routes from 'variables/routes';
 import styles from './style.module.scss';
 import Head from 'next/head';
 
@@ -27,6 +26,7 @@ const Article = ({
       <Head>
         <title>{Constants.TITLE} - {Constants.ARTICLES}</title>
       </Head>
+
       <div className={styles.article} key={index}>
         <img
           src={getImageUrl(mainImage).height(200).url()}
@@ -35,7 +35,7 @@ const Article = ({
           
         <div>
           <div>
-            <RouterLink href={`${Routes.ARTICLES}/${slug}`}>
+            <RouterLink href={`/articles/${slug}`}>
               <h2>{title}</h2>
               <p className={styles.author}>&nbsp;by {author}</p>
             </RouterLink>

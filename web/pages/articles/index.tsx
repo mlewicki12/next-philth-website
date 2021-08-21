@@ -1,6 +1,6 @@
 
 import groq from 'groq';
-import client from 'sanity';
+import client, { getPlainText } from 'sanity';
 import { useState } from 'react';
 
 import Article from 'components/article';
