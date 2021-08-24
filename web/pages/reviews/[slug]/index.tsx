@@ -3,7 +3,8 @@ import PostView from 'components/post-view';
 import groq from 'groq';
 import client from 'sanity';
 
-const ArticlePage = (props: any) => {
+const ReviewPage = (props: any) => {
+  console.log(props.post);
   return (
     <PostView
       post={props.post}
@@ -11,7 +12,7 @@ const ArticlePage = (props: any) => {
   );
 }
 
-const pathQuery = groq`*[_type == 'post'] {
+const pathQuery = groq`*[_type == 'review'] {
   slug
 }`;
 
@@ -32,15 +33,11 @@ export async function getStaticPaths() {
   };
 }
 
-const query = groq`*[_type == 'post' && slug.current == $slug][0] {
+const query = groq`*[_type == 'review' && slug.current == $slug][0] {
   title,
-  mainImage{
-    asset->{
-      _id,
-      url
-    }
-  },
+  publishedAt,
   body,
+  'mainImage': album.art,
   'name': author->name
 }`;
 
@@ -55,4 +52,4 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default ArticlePage;
+export default ReviewPage;

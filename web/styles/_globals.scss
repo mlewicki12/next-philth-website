@@ -25,6 +25,10 @@ a {
   transition-timing-function: ease;
 }
 
+img {
+  filter: grayscale(100%);
+}
+
 * {
   box-sizing: border-box;
 }

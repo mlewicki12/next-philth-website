@@ -15,15 +15,15 @@ const Post = (props: any) => {
   return (
     <div>
       {articles?.map(post => ( 
-        <Article
-          key={post.slug.current}
-          slug={post.slug.current}
-          mainImage={post.mainImage}
-          title={post.title}
-          author={post.author}
-          publishedAt={post.publishedAt}
-          blurb={post.blurb}
-        />
+	<Article
+	  key={post.slug.current}
+	  slug={post.slug.current}
+	  mainImage={post.mainImage}
+	  title={post.title}
+	  author={post.author}
+	  publishedAt={post.publishedAt}
+	  blurb={post.blurb}
+	/>
       ))}
     </div>
   );

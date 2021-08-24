@@ -17,10 +17,11 @@ type Article = {
   publishedAt: any;
   author: string;
   blurb: string;
+  route?: string;
 };
 
 const Article = ({
-  slug, mainImage, title, publishedAt, author, blurb
+  slug, mainImage, title, publishedAt, author, blurb, route
 }: Article) => {
   const [imageUrl, setImageUrl] = useState(getImageUrl(mainImage).height(200).url());
 
@@ -32,11 +33,15 @@ const Article = ({
 
       <div className={styles.article} key={slug}>
         <div className={styles.image}>
-          {imageUrl && <Image src={imageUrl} alt={title} width={200} height={200} objectFit='cover' objectPosition='center center' quality={100} />}
+          {imageUrl && 
+            <RouterLink href={`/${route ?? 'articles'}/${slug}`}>
+              <Image src={imageUrl} alt={title} width={200} height={200} objectFit='cover' objectPosition='center center' quality={100} />
+            </RouterLink>
+          }
         </div>
         <div>
           <div>
-            <RouterLink href={`/articles/${slug}`}>
+            <RouterLink href={`/${route ?? 'articles'}/${slug}`}>
               <h2>{title}</h2>
               <p className={styles.author}>- {author}</p>
             </RouterLink>
