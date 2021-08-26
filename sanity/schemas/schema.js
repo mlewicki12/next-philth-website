@@ -12,6 +12,8 @@ import post from './post'
 import review from './review';
 import author from './author'
 import album from './album'
+import higlightImage from './higlightImage';
+import siteSettings from './siteSettings';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -26,8 +28,10 @@ export default createSchema({
     review,
     author,
     category,
+    higlightImage,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
+    siteSettings,
     blockContent,
     blurb,
     album
