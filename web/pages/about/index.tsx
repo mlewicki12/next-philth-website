@@ -9,7 +9,7 @@ const AboutPage = () => {
       <div className={styles.wrapper}>
         <div className={styles.info}>
           <Image src='/logo.png' className={styles.logo} alt='Philth Zine logo'
-            width={273} height={242} />
+            width={273} height={242} priority />
         </div>
 
         <div className={styles.info}>
