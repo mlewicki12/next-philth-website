@@ -45,6 +45,11 @@ export default {
       title: 'Body',
       type: 'blockContent',
     },
+    {
+      name: 'blurb',
+      title: 'Blurb',
+      type: 'blurb'
+    }
   ],
 
   preview: {

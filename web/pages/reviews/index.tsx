@@ -1,12 +1,8 @@
 
 import groq from 'groq';
 import client, { getImageUrl } from 'sanity';
-import Image from 'next/image';
 import { useState } from 'react';
 
-import styles from './style.module.scss';
-import RouterLink from 'components/router-link';
-import Moment from 'react-moment';
 import Article from 'components/article';
 
 const Post = (props: any) => {
@@ -20,6 +16,7 @@ const Post = (props: any) => {
     <div>
       {reviews?.map(post => ( 
         <Article
+          key={post.slug.current}
           slug={post.slug.current}
           mainImage={post.album.art}
           title={post.title}

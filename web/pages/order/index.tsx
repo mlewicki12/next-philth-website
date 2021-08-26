@@ -6,7 +6,7 @@ const OrderPage = () => {
   return (
     <div className={styles.page}>
       <div className={styles.wrapper}>
-        <Image src='/order.jpg' width={900} height={506} />
+        <Image src='/order.jpg' width={900} height={506} alt='Printed copies of the zine stacked on a record shelf' />
         <div className={styles.info}>
           <div className={styles.order}>
             <h2>Free!</h2>
