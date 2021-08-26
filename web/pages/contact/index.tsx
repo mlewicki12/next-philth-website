@@ -9,7 +9,7 @@ const ContactPage = () => {
         <p>Interested in being reviewed or interviewed?</p>
         <p>Want to be added to a playlist or have an interesting idea for an article?</p>
         <p>Want to know how you can get involved?</p>
-        <p>We're always looking for new writers, editors, artists, and more!</p>
+        <p>We&apos;re always looking for new writers, editors, artists, and more!</p>
         <p>Send us an email!</p>
       </div>
 
