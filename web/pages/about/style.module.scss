@@ -5,18 +5,28 @@
   flex-flow: column nowrap;
   align-items: center;
 
-  .wrapper {
-    width: 50%;
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
+  @media (min-width: 1000px) {
+    .wrapper {
+      width: 50%;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
 
-    > .info {
-      padding: 1rem;
+      > .info {
+        padding: 1rem;
 
-      > h2 {
-        padding: 0;
-        margin: 0;
+        > h2 {
+          padding: 0;
+          margin: 0;
+        }
       }
     }
+  }
+}
+
+@media (max-width: 1000px) {
+  .wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }

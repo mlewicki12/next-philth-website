@@ -18,12 +18,15 @@
   }
 
   > div {
-
     height: 200px;
 
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
+
+    .text {
+      overflow: hidden;
+    }
 
     .blurb {
       padding-top: 1rem;
@@ -31,6 +34,15 @@
       
       overflow: hidden;
       text-overflow: ellipsis;
+
+      > * {
+        overflow: hidden;
+        text-overflow: fade;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+      }
     }
 
     h2, p {
@@ -44,6 +56,8 @@
 
     > .date {
       font-size: 0.75rem;
+      background-color: white;
+      padding: 0.5rem 0 0.5rem 0;
     }
   }
 }
@@ -55,4 +69,25 @@
 /* everyone but last child gets a border */
 .article:not(:last-child) {
   border-bottom: 1px solid black;
+}
+
+.mobileArticle {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .article {
+    display: none;
+  }
+
+  .mobileArticle {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+
+  .mobileArticle:not(:last-child) {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid black;
+  }
 }

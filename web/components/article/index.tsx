@@ -40,7 +40,7 @@ const Article = ({
           }
         </div>
         <div>
-          <div>
+          <div className={styles.text}>
             <RouterLink href={`/${route ?? 'articles'}/${slug}`}>
               <h2>{title}</h2>
               <p className={styles.author}>- {author}</p>
@@ -58,6 +58,18 @@ const Article = ({
 
           <p className={styles.date}>posted <Moment date={publishedAt} format='M/D/YYYY' /></p>
         </div>
+      </div>
+
+      <div className={styles.mobileArticle} key={`mobile-${slug}`}>
+        {imageUrl && 
+          <RouterLink href={`/${route ?? 'articles'}/${slug}`}>
+            <Image src={imageUrl} alt={title} width={200} height={200} objectFit='cover' objectPosition='center center' quality={100} />
+          </RouterLink>
+        }
+        <RouterLink href={`/${route ?? 'articles'}/${slug}`}>
+          <h2>{title}</h2>
+          <p className={styles.author}>- {author}</p>
+        </RouterLink>
       </div>
     </>
   );
