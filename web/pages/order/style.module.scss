@@ -12,11 +12,11 @@
     align-items: center;
 
     > .info {
-      width: 50%;
+      width: 75%;
 
       display: flex;
-      flex-flow: row nowrap;
-      justify-content: center;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
       align-items: center;
 
       > .order {
@@ -28,9 +28,27 @@
           text-decoration: none;
         }
 
-        width: 50%;
+        width: 80%;
         padding: 1rem;
       }
+    }
+  }
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+@media (max-width: 1250px) {
+  .info {
+    width: 100% !important;
+
+    > .order {
+      width: 100% !important;
     }
   }
 }

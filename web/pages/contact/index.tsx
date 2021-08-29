@@ -19,9 +19,6 @@ const ContactPage = () => {
 
         <h2>Instagram / Facebook / Twitter</h2>
         <p>@philthzine</p>
-
-        <h2>Looking to book a show?</h2>
-        <p>Find us @(tag) on all social media platforms</p>
       </div>
     </div>
   );

@@ -26,3 +26,9 @@
     }
   }
 }
+
+@media (max-width: 800px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+}
