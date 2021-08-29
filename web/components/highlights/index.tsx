@@ -47,6 +47,7 @@ const Highlights = ({
         <div className={styles.highlightsOverlay}>
           <p>{image.title} (<Moment date={image.date} format='M/D/YYYY' />)</p>
         </div>
+        <p className={styles.mobileCaption}>{image.title} (<Moment date={image.date} format='M/D/YYYY' />)</p>
       </div>
     </div>
   )

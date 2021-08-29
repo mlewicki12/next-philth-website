@@ -34,3 +34,10 @@
     }
   }
 }
+
+@media (max-width: 1000px) {
+  .homePage {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}

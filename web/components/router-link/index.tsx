@@ -3,12 +3,13 @@ import { ReactNode } from "react"
 
 type RouterLink = {
   children: ReactNode;
+  className?: string;
 }
 
 const RouterLink = (props: RouterLink & LinkProps) => {
   return (
     <Link {...props}>
-      <a href={props.href.toString()} style={{textDecoration: 'none'}}>{props.children}</a>
+      <a className={props.className} href={props.href.toString()} style={{textDecoration: 'none'}}>{props.children}</a>
     </Link>
   );
 }
