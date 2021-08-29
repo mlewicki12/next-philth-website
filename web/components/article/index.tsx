@@ -23,7 +23,7 @@ type Article = {
 const Article = ({
   slug, mainImage, title, publishedAt, author, blurb, route
 }: Article) => {
-  const [imageUrl, setImageUrl] = useState(getImageUrl(mainImage).height(200).url());
+  const [imageUrl,] = useState(getImageUrl(mainImage).height(200).url());
 
   return (
     <>
