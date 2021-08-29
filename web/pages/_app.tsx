@@ -10,8 +10,6 @@ const App = ({Component, pageProps}) => {
       <Head>
         <title>{pageProps.title ?? 'Philth Zine'}</title>
         <link rel='shortcut icon' href='philth.png' />
-
-        <script src="https://kit.fontawesome.com/8a35fe7035.js" crossOrigin="anonymous"></script>
       </Head>
 
       <Navigation />
