@@ -12,17 +12,18 @@ const Navigation = () => {
     <>
       <div className={styles.mobileMenu} style={{height: open ? '100vh' : '0vh'}}>
         <div className={styles.mobileLinks} style={{display: open ? 'flex' : 'none'}}>
-          <RouterLink className={styles.link} href='/about'>About</RouterLink>
-          <RouterLink className={styles.link} href='/articles'>Articles</RouterLink>
-          <RouterLink className={styles.link} href='/reviews'>Reviews</RouterLink>
-          <RouterLink className={styles.link} href='/order'>Order Physical</RouterLink>
-          <RouterLink className={styles.link} href='/contact'>Contact</RouterLink>
+          <RouterLink onClick={() => setOpen(false)} className={styles.link} href='/home'>Home</RouterLink>
+          <RouterLink onClick={() => setOpen(false)} className={styles.link} href='/about'>About</RouterLink>
+          <RouterLink onClick={() => setOpen(false)} className={styles.link} href='/articles'>Articles</RouterLink>
+          <RouterLink onClick={() => setOpen(false)} className={styles.link} href='/reviews'>Reviews</RouterLink>
+          <RouterLink onClick={() => setOpen(false)} className={styles.link} href='/order'>Order Physical</RouterLink>
+          <RouterLink onClick={() => setOpen(false)} className={styles.link} href='/contact'>Contact</RouterLink>
         </div>
       </div>
       <nav className={styles.nav}>
         <Hamburger onClick={() => setOpen(!open)} />
         <Link href='/home'>
-          <a className={styles.logo}>
+          <a className={styles.logo} onClick={() => setOpen(false)}>
             Philth Zine
           </a>
         </Link>
