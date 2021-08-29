@@ -25,15 +25,24 @@ export default {
       title: 'Date taken',
       type: 'datetime',
     },
+    {
+      name: 'active',
+      title: 'Display?',
+      type: 'boolean'
+    }
   ],
 
   preview: {
     select: {
       title: 'title',
       media: 'image',
+      active: 'active'
     },
     prepare(selection) {
-      return selection;
+      const { active } = selection
+      return Object.assign({}, selection, {
+        subtitle: active && 'Currently active',
+      })
     },
   },
 }

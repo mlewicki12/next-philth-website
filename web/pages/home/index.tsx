@@ -40,7 +40,7 @@ const query = groq`
     publishedAt,
     blurb
   },
-  'images': *[_type == 'highlightImage'] {
+  'images': *[_type == 'highlightImage' && active == true] {
     image,
     title,
     date

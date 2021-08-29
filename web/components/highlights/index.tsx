@@ -4,6 +4,7 @@ import Image from 'next/image';
 import styles from './style.module.scss';
 import { getImageUrl } from 'sanity';
 import Moment from 'react-moment';
+import useInterval from 'hooks/interval';
 
 export type HighlightImage = {
   image: any;
@@ -20,6 +21,10 @@ const Highlights = ({
 }: Highlights) => {
   const [current, setCurrent] = useState<number>(0);
   const [image, setImage] = useState<any>(images[current % images.length]);
+
+  useInterval(() => {
+    setCurrent(current + 1);
+  }, 30000);
 
   useEffect(() => {
     if(current >= images.length) {
