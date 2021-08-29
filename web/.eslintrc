@@ -1,4 +1,3 @@
 {
-  "extends": ["next", "next/core-web-vitals"],
-  "no-bitwise": 0
+  "extends": ["next", "next/core-web-vitals"]
 }
