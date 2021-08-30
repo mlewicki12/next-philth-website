@@ -4,8 +4,6 @@ import client, { getImageUrl, splitBlock } from 'sanity';
 import BlockContent from '@sanity/block-content-to-react';
 
 import styles from './style.module.scss';
-import useWindowSize from 'hooks/window-size';
-import { useState } from 'react';
 
 // specifically for mobile use
 const serializers = {
