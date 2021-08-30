@@ -44,3 +44,43 @@
     grid-row-end: 3;
   }
 }
+
+.mobileContent {
+  display: none;
+}
+
+@media (max-width: 1250px) {
+  .content, .images {
+    display: none;
+  }
+
+  .articlePage {
+    grid-template-columns: 1fr;
+  }
+
+  .mobileContent {
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+
+    > .image {
+      display: block;
+      width: fit-content;
+      height: fit-content;
+
+      padding: 1rem 0;
+    }
+
+    > .article {
+      width: calc(100vw - 3rem);
+    }
+
+    h1, p {
+      margin: 0;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+}

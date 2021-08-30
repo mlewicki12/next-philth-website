@@ -36,6 +36,10 @@
       margin: 0;
     }
 
+    .mobileCaption {
+      display: none;
+    }
+
     @media (max-width: 1000px) {
       .highlightsOverlay {
         display: none;
