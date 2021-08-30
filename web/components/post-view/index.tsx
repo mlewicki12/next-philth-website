@@ -8,6 +8,7 @@ import styles from './style.module.scss';
 // specifically for mobile use
 const serializers = {
   types: {
+    // eslint-disable-next-line react/display-name
     image: (props) => {
       return <Image layout='intrinsic' width={900} height={900} src={getImageUrl(props.node).url()} />;
     }
