@@ -6,28 +6,36 @@ import Moment from 'react-moment';
 import BlockContent from '@sanity/block-content-to-react';
 
 import AwesomeSlider from 'react-awesome-slider';
-
+import withAutoplay from 'react-awesome-slider/dist/autoplay';
 // copied from package bc next doesn't allow importing css modules from node_modules
 import AwsSliderStyles from './awesome-slider.module.scss';
 
-import Highlights from 'components/highlights';
 import styles from './style.module.scss';
-import moment from 'moment';
+
+const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 const Home = (props: any) => {
   const { post, images, settings } = props;
 
-  const getImageList = () => {
-    return images.map(item => getImageUrl(item.image).url());
-  };
+  const getImages = () => {
+    return images.map(item => ({
+      image: getImageUrl(item.image).url(),
+      key: item.title
+    }));
+  }
 
   return (
     <div className={styles.homePage}>
-      <AwesomeSlider cssModule={AwsSliderStyles} style={{marginBottom: '2rem'}}>
-        {getImageList().map(item => ( 
-          <div data-src={item} />
+      <AutoplaySlider
+        play={true}
+        cancelOnInteraction={true}
+        interval={8000}
+        cssModule={AwsSliderStyles}
+        style={{marginBottom: '2rem'}}>
+        {getImages().map(item => ( 
+          <div data-src={item.image} key={item.key} />
         ))}
-      </AwesomeSlider>
+      </AutoplaySlider>
       <div className={styles.articleWrapper}>
         <div className={styles.article}>
           <h2 className={styles.title}>{post.title}</h2>
