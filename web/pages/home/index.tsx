@@ -8,7 +8,7 @@ import BlockContent from '@sanity/block-content-to-react';
 import AwesomeSlider from 'react-awesome-slider';
 import withAutoplay from 'react-awesome-slider/dist/autoplay';
 // copied from package bc next doesn't allow importing css modules from node_modules
-import AwsSliderStyles from './awesome-slider.module.scss';
+import AwsSliderStyles from './slider-styles/awesome-slider.module.scss';
 
 import styles from './style.module.scss';
 
@@ -29,7 +29,7 @@ const Home = (props: any) => {
       <AutoplaySlider
         play={true}
         cancelOnInteraction={true}
-        interval={8000}
+        interval={15000}
         cssModule={AwsSliderStyles}
         style={{marginBottom: '2rem'}}>
         {getImages().map(item => ( 
