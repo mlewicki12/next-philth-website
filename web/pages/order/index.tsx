@@ -1,5 +1,6 @@
 
 import Image from 'next/image';
+import classnames from 'classnames';
 import styles from './style.module.scss';
 
 const OrderPage = () => {
@@ -8,7 +9,7 @@ const OrderPage = () => {
       <div className={styles.wrapper}>
         <Image src='/order.jpg' width={900} height={506} alt='Printed copies of the zine stacked on a record shelf' priority />
         <div className={styles.info}>
-          <div className={`${styles.right} ${styles.order}`}>
+          <div className={classnames(styles.right, styles.order)}>
             <h2>Free!</h2>
             <p>If you live in Philadelphia and want a printed copy of Philth, 
               send us an email and we’ll deliver it to you for free! You must 
@@ -17,7 +18,7 @@ const OrderPage = () => {
               know and when the issue is printed we will set a copy aside!</p>
           </div>
 
-          <div className={`${styles.left} ${styles.order}`}>
+          <div className={classnames(styles.left, styles.order)}>
             <h2>$5</h2>
             <p>If you live outside of the Philadelphia area and wish to own a physical 
               copy we request $5 for shipping and packaging. Please send us an email 
