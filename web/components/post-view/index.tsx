@@ -23,7 +23,7 @@ const PostView = ({
   post
 }: PostView) => {
   const imageUrl = getImageUrl(post.mainImage).url() ?? '';
-  const [texts, images] = splitBlock(post.body);
+  console.log(post.video);
 
   return (
     <div className={styles.articlePage}>
@@ -32,8 +32,9 @@ const PostView = ({
         <p><span style={{fontStyle: 'italic'}}>by {post.name}</span></p>
 
         <div className={styles.image}>
-          {imageUrl !== '' &&
-            <Image src={imageUrl} alt={post.title} width={900} height={900} layout='intrinsic' priority />}
+          {post.video
+          ? <iframe width="560" height="315" src={post.video} title={post.title} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          : imageUrl !== '' && <Image src={imageUrl} alt={post.title} width={900} height={900} layout='intrinsic' priority />}
         </div>
 
         <div className={styles.article}>
@@ -52,19 +53,14 @@ const PostView = ({
           <p><span style={{fontStyle: 'italic'}}>by {post.name}</span></p>
         </div>
 
-          <BlockContent
-            blocks={texts}
-            projectId={client.clientConfig.projectId}
-            dataset={client.clientConfig.dataset}
-          />
-      </div>
-
-      <div className={styles.images}>
-        {imageUrl !== '' &&
-          <Image src={imageUrl} alt={post.title} width={900} height={900} objectFit='contain' objectPosition='center top' priority />}
+        <div className={styles.image}>
+          {post.video
+          ? <iframe width="900" height="506" src={post.video} title={post.title} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          : imageUrl !== '' && <Image src={imageUrl} alt={post.title} width={900} height={900} layout='intrinsic' priority />}
+        </div>
 
         <BlockContent
-          blocks={images}
+          blocks={post.body}
           projectId={client.clientConfig.projectId}
           dataset={client.clientConfig.dataset}
         />

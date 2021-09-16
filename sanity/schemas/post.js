@@ -38,6 +38,11 @@ export default {
       },
     },
     {
+      name: 'video',
+      title: 'Video',
+      type: 'string',
+    },
+    {
       name: 'categories',
       title: 'Categories',
       type: 'array',

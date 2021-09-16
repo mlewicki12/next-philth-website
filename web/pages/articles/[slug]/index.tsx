@@ -41,6 +41,7 @@ const query = groq`*[_type == 'post' && slug.current == $slug][0] {
     }
   },
   body,
+  video,
   'name': author->name
 }`;
 
