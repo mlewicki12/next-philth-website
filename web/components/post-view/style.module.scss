@@ -14,6 +14,21 @@
     grid-column-end: 3;
 
     padding: 0.5rem;
+    max-width: 100%;
+
+    .frame {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
 
     img {
       max-width: 100%;
@@ -59,7 +74,7 @@
 
 @media (max-width: 1250px) {
   .content, .images {
-    display: none;
+    display: none !important;
   }
 
   .articlePage {
