@@ -1,5 +1,6 @@
 
 import Image from 'next/image';
+import Head from 'next/head';
 import client, { getImageUrl, splitBlock } from 'sanity';
 import BlockContent from '@sanity/block-content-to-react';
 
@@ -26,6 +27,11 @@ const PostView = ({
   console.log(post.video);
 
   return (
+    <>
+    <Head>
+      <title>{post.title} - Philth Zine</title>
+    </Head>
+
     <div className={styles.articlePage}>
       <div className={styles.mobileContent}>
         <h1>{post.title}</h1>
@@ -66,6 +72,7 @@ const PostView = ({
         />
       </div>
     </div>
+    </>
   );
 }
 

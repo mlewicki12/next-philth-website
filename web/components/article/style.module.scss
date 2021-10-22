@@ -76,6 +76,14 @@
 }
 
 @media (max-width: 700px) {
+  .title {
+    margin: 0;
+  }
+
+  .author {
+    margin-top: 0;
+  }
+
   .article {
     display: none;
   }

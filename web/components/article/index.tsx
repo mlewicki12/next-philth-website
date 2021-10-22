@@ -67,7 +67,7 @@ const Article = ({
           </RouterLink>
         }
         <RouterLink href={`/${route ?? 'articles'}/${slug}`}>
-          <h2>{title}</h2>
+          <h2 className={styles.title}>{title}</h2>
           <p className={styles.author}>- {author}</p>
         </RouterLink>
       </div>
