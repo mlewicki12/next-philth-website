@@ -1,6 +1,7 @@
 
 import groq from 'groq';
 import Link from 'next/link';
+import Head from 'next/head';
 import client, { getImageUrl } from 'sanity';
 import Moment from 'react-moment';
 import BlockContent from '@sanity/block-content-to-react';
@@ -25,6 +26,18 @@ const Home = (props: any) => {
   }
 
   return (
+    <>
+    <Head>
+      <meta name='twitter:card' content='summary' key='twcard' />
+      <meta name='twitter:creator' content='philthzine' key='twhandle' />
+
+      <meta property='og:image' content={getImages()[0].image} key='ogimage' />
+      <meta property='og:title' content='Home' key='ogtitle' />
+      <meta property='og:site_name' content='Philth Zine' key='ogsitename' />
+      <meta property='og:description' content='Documenting the music scene of Philadelphia' key='ogdesc' />
+      <meta property='og:bert' content='https://ogbertthenerd.bandcamp.com/' key='ogbert' />
+    </Head>
+
     <div className={styles.homePage}>
       <AutoplaySlider
         play={true}
@@ -53,6 +66,7 @@ const Home = (props: any) => {
           src={`https://open.spotify.com/embed/playlist/${settings.playlist}?theme=0`} title='playlist' width='100%' height='380' frameBorder='0' allow='encrypted-media'></iframe>
       </div>
     </div>
+    </>
   );
 }
 

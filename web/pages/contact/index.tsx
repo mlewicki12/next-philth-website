@@ -1,10 +1,23 @@
 
 import Image from 'next/image';
+import Head from 'next/head';
 import classnames from 'classnames';
 import styles from 'pages/order/style.module.scss';
 
 const ContactPage = () => {
   return (
+    <>
+    <Head>
+      <meta name='twitter:card' content='summary' key='twcard' />
+      <meta name='twitter:creator' content='philthzine' key='twhandle' />
+
+      <meta property='og:image' content='/contact.jpg' key='ogimage' />
+      <meta property='og:title' content='Contact us' key='ogtitle' />
+      <meta property='og:site_name' content='Philth Zine' key='ogsitename' />
+      <meta property='og:description' content='Documenting the music scene of Philadelphia' key='ogdesc' />
+      <meta property='og:bert' content='https://ogbertthenerd.bandcamp.com/' key='ogbert' />
+    </Head>
+
     <div className={styles.page}>
       <div className={styles.wrapper}>
         <Image src='/contact.jpg' width={900} height={366} alt={`Stylized image with the text 'Get in Touch'`} priority />
@@ -25,6 +38,7 @@ const ContactPage = () => {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

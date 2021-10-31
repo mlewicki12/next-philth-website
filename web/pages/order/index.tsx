@@ -1,10 +1,23 @@
 
+import Head from 'next/head';
 import Image from 'next/image';
 import classnames from 'classnames';
 import styles from './style.module.scss';
 
 const OrderPage = () => {
   return (
+    <>
+    <Head>
+      <meta name='twitter:card' content='summary' key='twcard' />
+      <meta name='twitter:creator' content='philthzine' key='twhandle' />
+
+      <meta property='og:image' content='/order.jpg' key='ogimage' />
+      <meta property='og:title' content='Order a copy' key='ogtitle' />
+      <meta property='og:site_name' content='Philth Zine' key='ogsitename' />
+      <meta property='og:description' content='Documenting the music scene of Philadelphia' key='ogdesc' />
+      <meta property='og:bert' content='https://ogbertthenerd.bandcamp.com/' key='ogbert' />
+    </Head>
+
     <div className={styles.page}>
       <div className={styles.wrapper}>
         <Image src='/order.jpg' width={900} height={506} alt='Printed copies of the zine stacked on a record shelf' priority />
@@ -30,6 +43,7 @@ const OrderPage = () => {
         <p>Email philthzine@gmail.com for a physical copy</p>
       </div>
     </div>
+    </>
   );
 };
 

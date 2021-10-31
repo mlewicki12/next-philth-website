@@ -1,7 +1,8 @@
 
 import groq from 'groq';
-import client, { getPlainText } from 'sanity';
+import client from 'sanity';
 import { useState } from 'react';
+import Head from 'next/head';
 
 import Article from 'components/article';
 
@@ -13,6 +14,18 @@ const Post = (props: any) => {
   }, []))
 
   return (
+    <>
+    <Head>
+      <meta name='twitter:card' content='summary' key='twcard' />
+      <meta name='twitter:creator' content='philthzine' key='twhandle' />
+
+      <meta property='og:image' content='/logo.png' key='ogimage' />
+      <meta property='og:title' content='Articles' key='ogtitle' />
+      <meta property='og:site_name' content='Philth Zine' key='ogsitename' />
+      <meta property='og:description' content='Documenting the music scene of Philadelphia' key='ogdesc' />
+      <meta property='og:bert' content='https://ogbertthenerd.bandcamp.com/' key='ogbert' />
+    </Head>
+
     <div>
       {articles?.map(post => ( 
         <Article
@@ -26,6 +39,7 @@ const Post = (props: any) => {
         />
       ))}
     </div>
+    </>
   );
 }
 

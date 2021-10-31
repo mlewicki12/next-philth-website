@@ -29,14 +29,14 @@ const PostView = ({
   return (
     <>
     <Head>
-      <title>{post.title} - Philth Zine</title>
+      <title>{post.title}</title>
 
       <meta name='twitter:card' content='summary' key='twcard' />
       <meta name='twitter:creator' content='philthzine' key='twhandle' />
 
       <meta property='og:image' content={imageUrl} key='ogimage' />
-      <meta property='og:site_name' content='Philth Zine' key='ogsitename' />
       <meta property='og:title' content={post.title} key='ogtitle' />
+      <meta property='og:site_name' content='Philth Zine' key='ogsitename' />
       <meta property='og:description' content={post.blurb} key='ogdesc' />
       <meta property='og:bert' content='https://ogbertthenerd.bandcamp.com/' key='ogbert' />
     </Head>
