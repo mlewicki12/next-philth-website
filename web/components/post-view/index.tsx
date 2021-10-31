@@ -30,6 +30,15 @@ const PostView = ({
     <>
     <Head>
       <title>{post.title} - Philth Zine</title>
+
+      <meta name='twitter:card' content='summary' key='twcard' />
+      <meta name='twitter:creator' content='philthzine' key='twhandle' />
+
+      <meta property='og:image' content={imageUrl} key='ogimage' />
+      <meta property='og:site_name' content='Philth Zine' key='ogsitename' />
+      <meta property='og:title' content={post.title} key='ogtitle' />
+      <meta property='og:description' content={post.blurb} key='ogdesc' />
+      <meta property='og:bert' content='https://ogbertthenerd.bandcamp.com/' key='ogbert' />
     </Head>
 
     <div className={styles.articlePage}>
@@ -39,7 +48,7 @@ const PostView = ({
 
         <div className={styles.image}>
           {post.video
-          ? <iframe width="560" height="315" src={post.video} title={post.title} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          ? <iframe width='560' height='315' src={post.video} title={post.title} frameBorder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowFullScreen></iframe>
           : imageUrl !== '' && <Image src={imageUrl} alt={post.title} width={900} height={900} layout='intrinsic' priority />}
         </div>
 
