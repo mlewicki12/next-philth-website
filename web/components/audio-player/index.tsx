@@ -4,6 +4,8 @@ import { getImageUrl, projectId, dataset } from 'sanity';
 import Image from 'next/image';
 import { PlayArrow, Pause } from '@mui/icons-material';
 
+import styles from './style.module.scss';
+
 const AudioPlayer = (props) => {
   const { file, cover, artist, title } = props;
 
@@ -37,7 +39,7 @@ const AudioPlayer = (props) => {
   const formOptions = (ref) => ({
     container: ref,
     waveColor: '#eee',
-    progressColor: '#333',
+    progressColor: '#777',
     barWidth: 3,
     barRadius: 3,
     responsive: true,
@@ -65,22 +67,22 @@ const AudioPlayer = (props) => {
   }
 
   return (
-    <div style={{display: 'flex', flexFlow: 'row nowrap', justifyContent: 'flex-start', alignItems: 'flex-start', padding: '1rem', backgroundColor: '#000'}}>
+    <div className={styles.wrapper}>
       <Image width={200} height={200} src={imageUrl} alt={`${artist} - ${title}`} />
-      <div style={{display: 'flex', flexFlow: 'column-reverse nowrap', justifyContent: 'flex-end', alignItems: 'flex-start', paddingLeft: '1rem', height: '100%', width: '100%', alignSelf: 'flex-end'}}>
-        <div style={{width: '100%', borderTop: '1px solid white', padding: '0.5rem 0 0 0'}}>
-          <h2 style={{color: 'white', padding: 0, paddingLeft: '0.5rem', margin: 0, fontFamily: 'RadioNewsman, serif', fontWeight: 'lighter'}}>{artist} - {title}</h2>
+      <div className={styles.player}>
+        <div className={styles.titleWrapper}>
+          <h2 className={styles.title}>{artist} - {title}</h2>
         </div>
-        <div style={{width: '100%', display: 'flex', flexFlow: 'row nowrap', justifyContent: 'flex-start', alignItems: 'center', padding: 0}}>
+        <div className={styles.playWrapper}>
           {drawPlay
-          ? <button onClick={handlePlay} aria-label='Play audio' style={{border: '2px solid white', backgroundColor: 'black', color: 'white', borderRadius: '50%', width: '45px', height: '45px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0.5rem 1rem 0.5rem 0', cursor: 'pointer', alignSelf: 'flex-end'}}>
+          ? <button onClick={handlePlay} aria-label='Play audio' className={styles.playButton}>
               {playing
               ? <Pause />
               : <PlayArrow />}
             </button>
-          : <div style={{width: '45px', height: '45px', margin: '0.5rem 1rem 0.5rem 0'}} /> // make sure the waveform generates properly
+          : <div className={styles.playButton} /> // make sure the waveform generates properly
           }
-          <div id='waveform' ref={waveformRef} style={{width: '100%', height: '120px'}} />
+          <div id='waveform' ref={waveformRef} className={styles.waveform} />
         </div>
       </div>
       <audio id='track' src={audioUrl} />
