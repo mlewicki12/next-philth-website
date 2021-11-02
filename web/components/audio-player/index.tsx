@@ -81,7 +81,7 @@ const AudioPlayer = (props) => {
                 ? <Pause />
                 : <PlayArrow />}
               </button>
-            : <div className={styles.playceholder} /> // no but do you get it?
+            : <div className={styles.playButton} /> // make sure the waveform generates properly
             }
             <div id='waveform' ref={waveformRef} className={styles.waveform} />
           </div>
