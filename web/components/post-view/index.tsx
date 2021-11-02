@@ -13,7 +13,7 @@ const mobileSerializers = {
   types: {
     // eslint-disable-next-line react/display-name
     image: (props) => {
-      return <Image layout='intrinsic' width={900} height={900} src={getImageUrl(props.node).url()} />;
+      return <div className={styles.image}><Image layout='intrinsic' width={900} height={900} src={getImageUrl(props.node).url()} /></div>;
     },
   }
 }

@@ -9,7 +9,7 @@ const App = ({Component, pageProps}) => {
     <div className='app-root'>
       <Head>
         <title>{pageProps.title ?? 'Philth Zine'}</title>
-        <link rel='shortcut icon' href='philth.png' />
+        <link rel='shortcut icon' href='/philth.png' />
       </Head>
 
       <Navigation />
