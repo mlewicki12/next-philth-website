@@ -3,8 +3,16 @@ import React, { useState, useEffect, useRef } from 'react';
 import { getImageUrl, projectId, dataset } from 'sanity';
 import Image from 'next/image';
 import { PlayArrow, Pause } from '@mui/icons-material';
+import { BeatLoader } from 'react-spinners';
+import { css } from '@emotion/react';
 
 import styles from './style.module.scss';
+
+const override = css`
+  width: 50px;
+  height: 50px;
+  margin: 0.5rem 1rem 0.5rem 0;
+`;
 
 const AudioPlayer = (props) => {
   const { file, cover, artist, title } = props;
@@ -40,12 +48,12 @@ const AudioPlayer = (props) => {
     container: ref,
     waveColor: '#eee',
     progressColor: '#555',
+    partialRender: true,
     barWidth: 3,
     barRadius: 3,
     responsive: true,
     height: 110,
     normalize: true,
-    partialRender: true
   });
 
   const create = async () => {
@@ -81,7 +89,7 @@ const AudioPlayer = (props) => {
                 ? <Pause />
                 : <PlayArrow />}
               </button>
-            : <div className={styles.playceholder} /> // no but do you get it?
+            : <BeatLoader color='#ffffff' loading={!drawPlay} size={12} margin={2} css={override} />
             }
             <div id='waveform' ref={waveformRef} className={styles.waveform} />
           </div>
