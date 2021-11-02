@@ -39,7 +39,7 @@ const AudioPlayer = (props) => {
   const formOptions = (ref) => ({
     container: ref,
     waveColor: '#eee',
-    progressColor: '#777',
+    progressColor: '#555',
     barWidth: 3,
     barRadius: 3,
     responsive: true,
