@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { getImageUrl, projectId, dataset } from 'sanity';
 import Image from 'next/image';
 import { PlayArrow, Pause } from '@mui/icons-material';
-import { BeatLoader } from 'react-spinners';
+import { ClipLoader } from 'react-spinners';
 import { css } from '@emotion/react';
 
 import styles from './style.module.scss';
@@ -54,7 +54,7 @@ const AudioPlayer = (props) => {
     responsive: true,
     height: 110,
     normalize: true,
-    backend: 'MediaElement'
+    hideScrollbar: true
   });
 
   const create = async () => {
@@ -90,7 +90,7 @@ const AudioPlayer = (props) => {
                 ? <Pause />
                 : <PlayArrow />}
               </button>
-            : <BeatLoader color='#ffffff' loading={!drawPlay} size={12} margin={2} css={override} />
+            : <ClipLoader color='#ffffff' loading={!drawPlay} size={20} css={override} />
             }
             <div id='waveform' ref={waveformRef} className={styles.waveform} />
           </div>
