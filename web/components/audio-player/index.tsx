@@ -54,6 +54,7 @@ const AudioPlayer = (props) => {
     responsive: true,
     height: 110,
     normalize: true,
+    backend: 'MediaElement'
   });
 
   const create = async () => {
