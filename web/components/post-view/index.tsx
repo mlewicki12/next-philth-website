@@ -2,16 +2,26 @@
 import Image from 'next/image';
 import Head from 'next/head';
 import client, { getImageUrl, splitBlock } from 'sanity';
+
 import BlockContent from '@sanity/block-content-to-react';
+import AudioPlayer from 'components/audio-player';
 
 import styles from './style.module.scss';
 
 // specifically for mobile use
-const serializers = {
+const mobileSerializers = {
   types: {
     // eslint-disable-next-line react/display-name
     image: (props) => {
       return <Image layout='intrinsic' width={900} height={900} src={getImageUrl(props.node).url()} />;
+    },
+  }
+}
+
+const serializers = {
+  types: {
+    audio: (props) => {
+      return <AudioPlayer {...props.node} />
     }
   }
 }
@@ -24,7 +34,6 @@ const PostView = ({
   post
 }: PostView) => {
   const imageUrl = getImageUrl(post.mainImage).url() ?? '';
-  console.log(post.video);
 
   return (
     <>
@@ -57,7 +66,7 @@ const PostView = ({
             blocks={post.body}
             projectId={client.clientConfig.projectId}
             dataset={client.clientConfig.dataset}
-            serializers={serializers}
+            serializers={Object.assign(mobileSerializers, serializers)}
           />
         </div>
       </div>
@@ -78,6 +87,7 @@ const PostView = ({
           blocks={post.body}
           projectId={client.clientConfig.projectId}
           dataset={client.clientConfig.dataset}
+          serializers={serializers}
         />
       </div>
     </div>

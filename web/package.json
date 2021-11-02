@@ -9,6 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@mui/core": "^5.0.0-alpha.53",
+    "@mui/icons-material": "^5.0.5",
+    "@mui/material": "^5.0.6",
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^2.14.0",
     "@sanity/image-url": "^0.140.22",
@@ -21,7 +26,8 @@
     "react-dom": "17.0.2",
     "react-moment": "^1.1.1",
     "react-router-dom": "^5.2.0",
-    "sass": "^1.37.5"
+    "sass": "^1.37.5",
+    "wavesurfer.js": "^5.2.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.18",

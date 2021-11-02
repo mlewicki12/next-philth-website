@@ -2,10 +2,13 @@
 import sanityClient from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 
+export const projectId = 'sm3hu3jh';
+export const dataset = 'production';
+
 const client = sanityClient({
   apiVersion: '2021-08-02',
-  projectId: 'sm3hu3jh',
-  dataset: 'production',
+  projectId: projectId,
+  dataset: dataset,
   useCdn: true
 });
 
