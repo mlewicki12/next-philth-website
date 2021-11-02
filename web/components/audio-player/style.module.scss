@@ -12,6 +12,10 @@
   background-color: #000;
 }
 
+.mobileTitleWrapper {
+  display: none;
+}
+
 .title {
   width: 100%;
   color: white;
@@ -55,22 +59,25 @@
       align-items: center;
       padding: 0;
 
+      .playceholder { // get it?
+        width: 45px;
+        height: 45px;
+        margin: 0.5rem 1rem 0.5rem 0;
+      }
+
       .playButton {
         border: 2px solid white;
 				background-color: black;
 				color: white;
 				border-radius: 50%;
+        width: 45px;
+        height: 45px;
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				margin: 0.5rem 1rem 0.5rem 0;
 				cursor: pointer;
 				align-self: flex-end;
-
-        > * {
-          width: 45px;
-          height: 45px;
-        }
       }
 
       .playButton:hover, .playButton:active {
@@ -95,7 +102,7 @@
     border-top: 1px solid white;
     width: 100%;
 
-    padding-top: 0.5rem;
+    padding: 0.5rem;
 
     .title {
       text-align: center;
