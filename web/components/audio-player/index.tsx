@@ -13,9 +13,15 @@ const AudioPlayer = (props) => {
 
   const [playing, setPlaying] = useState<boolean>(false);
 
-  if(!file.asset?._ref) {
-    return null;
-  }
+  useEffect(() => {
+    create();
+
+    return () => {
+      if (wavesurfer.current) {
+        wavesurfer.current.destroy();
+      }
+    }
+  }, []);
 
   const { _ref: ref } = file.asset;
 
@@ -47,16 +53,6 @@ const AudioPlayer = (props) => {
     wavesurfer.current.load(audioUrl);
   }
 
-  useEffect(() => {
-    create();
-
-    return () => {
-      if (wavesurfer.current) {
-        wavesurfer.current.destroy();
-      }
-    }
-  }, []);
-
   const handlePlay = () => {
     setPlaying(!playing);
     wavesurfer.current.playPause();
@@ -64,7 +60,7 @@ const AudioPlayer = (props) => {
 
   return (
     <div style={{display: 'flex', flexFlow: 'row nowrap', justifyContent: 'flex-start', alignItems: 'flex-start', padding: '1rem', backgroundColor: '#000'}}>
-      <Image width={200} height={200} src={imageUrl} />
+      <Image width={200} height={200} src={imageUrl} alt='Two Thumbs Down - Bob and Edith' />
       <div style={{display: 'flex', flexFlow: 'column nowrap', justifyContent: 'space-between', alignItems: 'flex-start', paddingLeft: '1rem', height: '100%', width: '100%'}}>
         <h2 style={{color: 'white', padding: 0, margin: 0}}>Two Thumbs Down - Bob and Edith</h2>
         <div style={{width: '100%', display: 'flex', flexFlow: 'row nowrap', justifyContent: 'flex-start', alignItems: 'center', padding: '1.5rem 0'}}>

@@ -20,6 +20,7 @@ const mobileSerializers = {
 
 const serializers = {
   types: {
+    // eslint-disable-next-line react/display-name
     audio: (props) => {
       return <AudioPlayer {...props.node} />
     }

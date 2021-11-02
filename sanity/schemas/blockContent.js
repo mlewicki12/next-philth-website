@@ -76,5 +76,11 @@ export default {
       ],
       options: {hotspot: true},
     },
+    {
+      type: 'audio',
+      name: 'audio',
+      title: 'Audio',
+      options: {hotspot: true}
+    }
   ],
 }
