@@ -67,25 +67,32 @@ const AudioPlayer = (props) => {
   }
 
   return (
-    <div className={styles.wrapper}>
-      <Image width={200} height={200} src={imageUrl} alt={`${artist} - ${title}`} />
-      <div className={styles.player}>
-        <div className={styles.titleWrapper}>
-          <h2 className={styles.title}>{artist} - {title}</h2>
+    <div className={styles.content}>
+      <div className={styles.wrapper}>
+        <Image width={200} height={200} src={imageUrl} alt={`${artist} - ${title}`} />
+        <div className={styles.player}>
+          <div className={styles.titleWrapper}>
+            <h2 className={styles.title}>{artist} - {title}</h2>
+          </div>
+          <div className={styles.playWrapper}>
+            {drawPlay
+            ? <button onClick={handlePlay} aria-label='Play audio' className={styles.playButton}>
+                {playing
+                ? <Pause />
+                : <PlayArrow />}
+              </button>
+            : <div className={styles.playButton} /> // make sure the waveform generates properly
+            }
+            <div id='waveform' ref={waveformRef} className={styles.waveform} />
+          </div>
         </div>
-        <div className={styles.playWrapper}>
-          {drawPlay
-          ? <button onClick={handlePlay} aria-label='Play audio' className={styles.playButton}>
-              {playing
-              ? <Pause />
-              : <PlayArrow />}
-            </button>
-          : <div className={styles.playButton} /> // make sure the waveform generates properly
-          }
-          <div id='waveform' ref={waveformRef} className={styles.waveform} />
-        </div>
+
+        <audio id='track' src={audioUrl} />
       </div>
-      <audio id='track' src={audioUrl} />
+
+      <div className={styles.mobileTitleWrapper}>
+        <h2 className={styles.title}>{artist} - {title}</h2>
+      </div>
     </div>
   );
 }

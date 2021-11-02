@@ -1,11 +1,35 @@
 
+.content {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding: 1rem;
+  background-color: #000;
+}
+
+.title {
+  width: 100%;
+  color: white;
+  padding: 0;
+  padding-left: 0.5rem;
+  margin: 0;
+  font-family: RadioNewsman, serif;
+  font-weight: lighter;
+}
+
 .wrapper {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 1rem;
-  background-color: #000;
+
+  width: 100%;
+  height: 100%;
 
   .player {
     display: flex;
@@ -21,15 +45,6 @@
       width: 100%;
       border-top: 1px solid white;
       padding: 0.5rem 0 0 0;
-
-      .title {
-        color: white;
-				padding: 0;
-				padding-left: 0.5rem;
-				margin: 0;
-				font-family: RadioNewsman, serif;
-				font-weight: lighter;
-      }
     }
 
     .playWrapper {
@@ -45,14 +60,17 @@
 				background-color: black;
 				color: white;
 				border-radius: 50%;
-				width: 45px;
-				height: 45px;
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				margin: 0.5rem 1rem 0.5rem 0;
 				cursor: pointer;
-				align-self: flex-end
+				align-self: flex-end;
+
+        > * {
+          width: 45px;
+          height: 45px;
+        }
       }
 
       .playButton:hover, .playButton:active {
@@ -63,6 +81,24 @@
         width: 100%;
         height: 120px;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .titleWrapper {
+    display: none;
+  }
+
+  .mobileTitleWrapper {
+    display: block;
+    border-top: 1px solid white;
+    width: 100%;
+
+    padding-top: 0.5rem;
+
+    .title {
+      text-align: center;
     }
   }
 }
